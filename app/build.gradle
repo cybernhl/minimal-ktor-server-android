@@ -8,7 +8,8 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.ktorwsissue"
+        namespace "com.example.ktorwsissue"
+        applicationId "com.example.ktorwsissue1"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
