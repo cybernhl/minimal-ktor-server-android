@@ -58,7 +58,7 @@ dependencies {
     // Kotlin
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1"
 
-    def ktorVersion = '2.0.3'//1.6.2--->2.0.x Ref: https://ktor.io/docs/migration-to-20x.html https://github.com/ktorio/ktor-samples/tree/55414a2afa5a57429c1615b8a39c1914aad78b8f
+    def ktorVersion = '2.3.13'//2.0.x--->2.2.x Ref: https://ktor.io/docs/migration-to-22x.html https://github.com/ktorio/ktor-samples/tree/b72d28c199e775f29f8c942e7d8136caa986d35a
     implementation "io.ktor:ktor-server-core:$ktorVersion"
     implementation "io.ktor:ktor-server-netty:$ktorVersion"
     implementation "io.ktor:ktor-server-websockets:$ktorVersion"
