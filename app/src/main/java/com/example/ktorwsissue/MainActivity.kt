@@ -25,9 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     private val logger = Logger.getLogger("KtorServer")
 
-    private val server by lazy {
-        embeddedServer(Netty, 13276, watchPaths = emptyList(),module=Application::configureCommonPlugins)
-    }
+    private val server = ServerFactory.getServer(Netty, 13276, watchPaths = emptyList(), modules = Application::configureCommonPlugins)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
