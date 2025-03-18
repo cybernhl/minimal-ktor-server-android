@@ -26,32 +26,7 @@ class MainActivity : AppCompatActivity() {
     private val logger = Logger.getLogger("KtorServer")
 
     private val server by lazy {
-        embeddedServer(Netty, 13276, watchPaths = emptyList()) {
-            install(WebSockets)
-            install(CallLogging)
-
-            routing {
-                get("/") {
-                    call.respondText("All good here in ${Build.MODEL}", ContentType.Text.Plain)
-                }
-
-                webSocket("/ws") {
-                    logger.info("Sending message to client...")
-                    send("foo")
-
-                    val receivedMessage = incoming.receive()
-                    val messageFormatted = if (receivedMessage.frameType == FrameType.TEXT) {
-                        receivedMessage.readBytes().toString(Charset.defaultCharset())
-                    } else {
-                        "<non-text frame>"
-                    }
-                    logger.info("Got message from client: $messageFormatted")
-
-                    logger.info("Closing connection...")
-                    close()
-                }
-            }
-        }
+        embeddedServer(Netty, 13276, watchPaths = emptyList(),module=Application::configureCommonPlugins)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
